@@ -28,5 +28,5 @@ else:
             f.write(str(h[0]) + ',' + str(h[1]))
             f.write('\n')
         f.close()
-os.system('docker exec scprime01 spc host announce ' + ip + ':14282' )
-os.system('docker exec scprime02 spc host announce ' + ip + ':24282' )
+    os.system('docker exec scprime01 spc host announce ' + ip + ':14282' )
+    os.system('docker exec scprime02 spc host announce ' + ip + ':24282' )
