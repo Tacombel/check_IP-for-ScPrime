@@ -17,9 +17,9 @@ else:
 ip = os.popen('curl https://ipinfo.io/ip').read()
 
 if ip == ip_old:
-    print(f'La IP sigue siendo {ip_old}')
+    print(f'La IP sigue siendo {ip_old}', flush=True)
 else:
-    print(f'La IP ha cambiado de {ip_old} a {ip}')
+    print(f'La IP ha cambiado de {ip_old} a {ip}', flush=True)
     value = []
     value = [datetime.datetime.now(), ip]
     historico.append(value)
