@@ -1,6 +1,8 @@
 # check_IP-for-ScPrime
 Copy checkip.py anywhere you like
 
+Open with a editor.
+
 Remove the last line.
 
 Edit  os.system('docker exec scprime01 spc host announce ' + ip + ':14282' ) to match your announce command. If neccessary add full path.
