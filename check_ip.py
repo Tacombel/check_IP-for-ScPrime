@@ -28,5 +28,13 @@ else:
             f.write(str(h[0]) + ',' + str(h[1]))
             f.write('\n')
         f.close()
-    os.system('docker exec scprime01 spc host announce ' + ip + ':14282' )
-    os.system('docker exec scprime02 spc host announce ' + ip + ':24282' )
+# You need to edit line 33 to be the same command that you would use in the CLI
+# This is an example for spd running in a container at a non standard port
+    os.system('docker exec scprime01 spc host announce ' + ip + ':14282')
+    
+# This could be for a windows system where you added spd path to the environment
+#    os.system('spc host announce')
+
+# Or Linux
+#    os.system('/scprime/spc host announce ' + ip + ':24282')
+
