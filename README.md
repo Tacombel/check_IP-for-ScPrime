@@ -9,6 +9,6 @@ Edit  os.system('docker exec scprime01 spc host announce ' + ip + ':14282' ) to 
 
 Create a cron job for the users that launches spd. Edit to suit your paths
 
-0/5 * * * * systemd-cat -t "checkip-cron" /usr/bin/python3 /home/daniel/checkip/checkip.py
+*/5 * * * * systemd-cat -t "checkip-cron" /usr/bin/python3 /home/daniel/checkip/checkip.py
 
 A ip.txt file will be created at /home/$USER/ that will register ip changes.
