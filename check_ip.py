@@ -1,6 +1,9 @@
 import os
+import sys
 from os.path import exists
 import datetime
+from urllib.request import Request, urlopen
+from urllib.error import URLError
 
 historico = []
 if exists('ip.txt'):
@@ -14,12 +17,25 @@ if exists('ip.txt'):
 else:
     ip_old = 'valor_inicial'
 
-ip = os.popen('curl https://ipinfo.io/ip').read()
+req = Request('https://ipinfo.io/ip')
+try:
+    response = urlopen(req)
+except URLError as e:
+    if hasattr(e, 'reason'):
+        print('We failed to reach a server.')
+        print('Reason: ', e.reason)
+    elif hasattr(e, 'code'):
+        print('The server couldn\'t fulfill the request.')
+        print('Error code: ', e.code)
+    sys.exit()
+
+ip = response.read()
+ip = ip.decode("utf-8")
 
 if ip == ip_old:
-    print(f'La IP sigue siendo {ip_old}', flush=True)
+    print(f'The IP is still {ip_old}', flush=True)
 else:
-    print(f'La IP ha cambiado de {ip_old} a {ip}', flush=True)
+    print(f'The IP changed from {ip_old} to {ip}', flush=True)
     value = []
     value = [datetime.datetime.now(), ip]
     historico.append(value)
