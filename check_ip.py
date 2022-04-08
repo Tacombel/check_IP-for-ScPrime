@@ -44,8 +44,9 @@ else:
             f.write(str(h[0]) + ',' + str(h[1]))
             f.write('\n')
         f.close()
-# You need to edit line 49 to be the same command that you would use in the CLI. Be carefull as there must be a space after announce if there is a IP
+# You need to edit line 50 to be the same command that you would use in the CLI. Be carefull as there must be a space after announce if there is a IP
 # This is an example for spd running in a container at a non standard port
+# remember to add the complete path if needed
     os.system('docker exec scprime01 spc host announce ' + ip + ':14282')
     
 # This could be for a windows system where you added spd path to the environment
